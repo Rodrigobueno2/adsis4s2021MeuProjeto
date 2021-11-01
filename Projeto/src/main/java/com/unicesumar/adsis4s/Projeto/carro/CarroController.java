@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,5 +18,10 @@ public class CarroController {
    @GetMapping
    public List<Carro> obterTodos(){
 	   return service.obterTodos();
+   }
+   
+   @PostMapping
+   public String salvarCarro(@RequestBody Carro novo) {
+	   return service.salvarCarro(novo).getId();
    }
 }
